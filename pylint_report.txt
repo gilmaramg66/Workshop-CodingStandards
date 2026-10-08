@@ -1,14 +1,15 @@
 ************* Module test
+test.py:48:0: C0301: Line too long (107/100) (line-too-long)
 test.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 test.py:1:0: C0115: Missing class docstring (missing-class-docstring)
 test.py:10:4: C0116: Missing function or method docstring (missing-function-docstring)
 test.py:16:4: C0116: Missing function or method docstring (missing-function-docstring)
-test.py:20:8: W0612: Unused variable 'avg' (unused-variable)
-test.py:22:4: C0116: Missing function or method docstring (missing-function-docstring)
-test.py:26:4: C0116: Missing function or method docstring (missing-function-docstring)
-test.py:29:4: C0116: Missing function or method docstring (missing-function-docstring)
-test.py:36:0: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:21:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:28:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:42:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:50:4: C0116: Missing function or method docstring (missing-function-docstring)
+test.py:63:0: C0116: Missing function or method docstring (missing-function-docstring)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.50/10 (previous run: 0.91/10, +6.59)
+Your code has been rated at 8.28/10 (previous run: 7.50/10, +0.78)
 

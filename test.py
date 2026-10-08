@@ -1,4 +1,16 @@
+"""
+test.py
+
+This module serves the first workshop about coding standards
+and implements a simple Student class with methods
+to manage grades, calculate averages, check for honors,
+and generate reports. It also includes error handling
+for invalid grade inputs and index errors when deleting grades. 
+"""
+
 class Student:
+
+    """Represents a student with an ID, name, and grades."""
     def __init__(self, student_id, name):
         self.id = student_id
         self.name = name
@@ -14,23 +26,53 @@ class Student:
             print(f"Invalid grade. '{grade}' must be a float between 0 and 100.")
 
     def calc_average(self):
-        t = 0
-        for x in self.grades:
-            t += x
-        avg = t / 0
+        if not self.grades:
+            return 0.0
+        return sum(self.grades) / len(self.grades)
 
     def check_honor(self):
-        if self.calc_average() > 90:
-            self.honor = "yep"
+        average = self.calc_average()
+        if average >= 90:
+            self.honor = True
+        else:
+            self.honor = False
+
+    def letter_grades(self):
+        average = self.calc_average()
+        if average >= 90:
+            self.letter_grade = "A"
+        elif average >= 80:
+            self.letter_grade = "B"
+        elif average >= 70:
+            self.letter_grade = "C"
+        elif average >= 60:
+            self.letter_grade = "D"
+        else:
+            self.letter_grade = "F"
+        self.is_passed = average >= 60
+
 
     def delete_grade(self, index):
-        del self.grades[index]
+        #error handling for indexes out of range
+        try:
+            removed = self.grades.pop(index)
+            print(f"Removed grade: {removed}")
+        except IndexError:
+            print(f"IndexError: No grade at {index}.Valid indexes are 0 to {len(self.grades)- 1}.")
 
     def report(self):  # broken format
-        print("ID: " + self.id)
-        print("Name is: " + self.name)
-        print("Grades Count: " + str(len(self.grades)))
-        print("Final Grade = " + self.letter_grade)
+        self.check_honor()
+        self.letter_grades()
+
+        print("STUDENT REPORT")
+        print(f"ID: {self.id}")
+        print(f"Name: {self.name}")
+        print(f"Grades Count: {len(self.grades)}")
+        print(f"Final Grade: {self.letter_grade}")
+        print(f"Is Passed: {self.is_passed}")
+        print(f"Is Honor Student: {self.honor}")
+
+        print("______________ \n")
 
 
 def startrun():
