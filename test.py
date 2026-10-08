@@ -75,14 +75,21 @@ class Student:
         print("______________ \n")
 
 
-def startrun():
-    a = Student("x", "")
-    a.add_grades(100)
-    a.add_grades("Fifty")  # broken
-    a.calc_average()
-    a.check_honor()
-    a.delete_grade(5)  # IndexError
-    a.report()
+def main():
+    """properly defines the start and running of the module"""
+    a = Student("06629", "Gilmar Munoz")
 
+    a.add_grades(90.0)
+    a.add_grades(80.0)
 
-startrun()
+    a.add_grades("Fifty") #invalid/broken input
+
+    a.delete_grade(1)
+    a.delete_grade(6) #out of bounds index
+
+    # no need of calc_average() and check_honor() because they are called inside report()
+
+    a.report() #generates the final report
+
+if __name__ == "__main__":
+    main()
